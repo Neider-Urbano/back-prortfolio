@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 require("dotenv").config();
-const {url_origin} = process.env;
+// const {url_origin} = process.env;
 import express from 'express'
 import routerMail from "./microservices/email/route"
 
 var server=express();
 server.use(express.json())
-server.use(cors({ origin: url_origin }));
+// server.use(cors({ origin: url_origin }));
+server.use(cors(true ));
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
