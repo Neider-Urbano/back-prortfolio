@@ -25,6 +25,9 @@ server.use((_req, res, next) => {
 });
 
 server.use("/",routerMail)
+server.use("/",(_req:any, res:any)=>{
+  res.send("hello world!, welcome to my back portfolio")
+})
 
 server.use((err:any, res:any) => { 
   const status = err.status || 500;
