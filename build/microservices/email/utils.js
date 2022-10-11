@@ -5,13 +5,13 @@ require("dotenv").config();
 const { mail } = process.env;
 const validateFrom = (from) => {
     if (!isEmail(from)) {
-        throw new Error("Incorrect or string from");
+        throw new Error("Incorrect or email from");
     }
     return from;
 };
 const validateTo = (to) => {
     if (!isEmail(to)) {
-        throw new Error("Incorrect or string to");
+        throw new Error("Incorrect or Email to");
     }
     return to;
 };
@@ -37,14 +37,14 @@ const isString = (string) => {
     return (typeof string === "string" || string instanceof String);
 };
 const isEmail = (email) => {
-    return ((/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(email));
+    return (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email));
 };
 function validateJson(jsonRequest) {
     var newJson = {
         from: validateFrom(jsonRequest.email),
         to: validateTo(mail),
         subject: validateSubject(jsonRequest.subject),
-        html: validateMessage(jsonRequest.message) + " " + validateName(jsonRequest.name)
+        html: validateMessage(jsonRequest.message) + " " + validateName(jsonRequest.name) + ", email from: " + validateFrom(jsonRequest.email)
     };
     return newJson;
 }
