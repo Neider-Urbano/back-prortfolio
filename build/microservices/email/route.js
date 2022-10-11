@@ -8,6 +8,6 @@ const controller_1 = __importDefault(require("./controller"));
 const routerMail = Router();
 routerMail.post("/mail", controller_1.default);
 routerMail.get("/mail", (_req, res) => {
-    res.send("hello world!");
+    res.send("route mail");
 });
 exports.default = routerMail;

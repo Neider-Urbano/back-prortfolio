@@ -27,6 +27,9 @@ server.use((_req, res, next) => {
     next();
 });
 server.use("/", route_1.default);
+server.use("/", (_req, res) => {
+    res.send("hello world!, welcome to my back portfolio");
+});
 server.use((err, res) => {
     const status = err.status || 500;
     const message = err.message || err;
