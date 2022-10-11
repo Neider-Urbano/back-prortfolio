@@ -10,7 +10,7 @@ import routerMail from "./microservices/email/route"
 var server=express();
 server.use(express.json())
 // server.use(cors({ origin: url_origin }));
-server.use(cors(true ));
+server.use(cors(true));
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
